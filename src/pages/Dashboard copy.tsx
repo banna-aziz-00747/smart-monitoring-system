@@ -50,7 +50,7 @@ export default function Dashboard() {
       <div style={{ display: "flex", gap: 20 }}>
         <div style={{ width: 300 }}>
           {buses.map((bus) => (
-            <BusCard key={bus.id} bus={bus} onClick={() => setSelected(bus)} />
+                      <BusCard key={bus.id} bus={bus} selected={selected?.id === bus.id} onClick={() => setSelected(bus)} />
           ))}
         </div>
 
