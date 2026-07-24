@@ -13,7 +13,7 @@ const API = "http://192.168.0.105:5000";
 export default function CameraPanel({ bus }: Props) {
   const [loading, setLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState(
-    bus?.imageUrl ? `${API}${bus.imageUrl}?t=${Date.now()}` : null,
+    bus?.imageUrl ? `${bus.imageUrl}?t=${Date.now()}` : null,
   );
   // useEffect(() => {
   //   connection.on("ImageUploaded", (data) => {
@@ -23,7 +23,7 @@ export default function CameraPanel({ bus }: Props) {
 
   useEffect(() => {
     if (bus?.imageUrl) {
-      setCurrentImage(`${API}${bus.imageUrl}?t=${Date.now()}`);
+      setCurrentImage(`${bus.imageUrl}?t=${Date.now()}`);
     } else {
       setCurrentImage(null);
     }
@@ -35,7 +35,7 @@ export default function CameraPanel({ bus }: Props) {
 
       if (data.deviceId !== bus?.deviceId) return;
 
-      setCurrentImage(`${API}${data.imageUrl}?t=${new Date().getTime()}`);
+      setCurrentImage(`${data.imageUrl}?t=${new Date().getTime()}`);
     };
 
     connection.on("ImageUploaded", handler);
