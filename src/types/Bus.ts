@@ -14,7 +14,7 @@ export interface BusDto {
   deviceId: string;
   isOnline: boolean;
   // ISO timestamp of when the bus was last seen / reported online
-  lastSeen?: string;
+  lastSeen?: string | number | Date;
   imageUrl?: string;
   capturedAt?: string;
 }

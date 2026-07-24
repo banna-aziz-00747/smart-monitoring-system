@@ -3,11 +3,15 @@ import type { BusDto } from "../types/Bus";
 
 interface BusCardProps {
   bus: BusDto;
-  selected: boolean;
-  onClick: () => void;
+  selected?: boolean;
+  onClick?: () => void;
 }
 
-export default function BusCard({ bus, selected, onClick }: BusCardProps) {
+export default function BusCard({
+  bus,
+  selected = false,
+  onClick = () => {},
+}: BusCardProps) {
   return (
     <button
       onClick={onClick}
